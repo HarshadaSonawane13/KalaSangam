@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshop Registration | KalaSangam</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <span class="logo-text">KalaSangam</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="event-list1.html">Workshops</a></li>
+            <li class="nav-item"><a id="logoutBtn" class="btn btn-sm btn-login" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Registration Section -->
+  <section class="login-section">
+    <div class="container">
+      <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-md-6 col-lg-5">
+          <div class="login-card shadow p-4 rounded">
+            <h2 class="text-center mb-4 login-title">Register for a Workshop</h2>
+            <form id="registrationForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="eventId" class="form-label">Select Workshop</label>
+                <select class="form-select" id="eventId" required>
+                  <option value="">Loading workshops...</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="preferredDate" class="form-label">Preferred Date</label>
+                <input type="date" class="form-control" id="preferredDate" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="notes" class="form-label">Additional Notes</label>
+                <textarea class="form-control" id="notes" rows="3"></textarea>
+              </div>
+
+              <button id="submitBtn" type="submit" class="btn btn-cta w-100">Register</button>
+            </form>
+
+            <p class="text-center mt-4">
+              <a href="my-registrations.html" class="signup-link">View My Registrations</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer py-3 mt-auto text-center">
+    <div class="container">
+      <p class="mb-1">Join Our Creative Community</p>
+      <p class="mb-0"><a href="#">Privacy Policy</a> | &copy; 2025 KalaSangam</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const API_BASE = 'http://localhost:5000/api';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Please log in first!');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      document.getElementById('logoutBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        ['token', 'username', 'role'].forEach(k => localStorage.removeItem(k));
+        alert('You have been logged out.');
+        window.location.href = 'index.html';
+      });
+
+      await loadEvents();
+    });
+
+    async function loadEvents() {
+      const eventSelect = document.getElementById('eventId');
+      eventSelect.innerHTML = '<option value="">Loading workshops...</option>';
+
+      try {
+        const res = await fetch(`${API_BASE}/events`);
+        const events = await res.json();
+        eventSelect.innerHTML = '<option value="">-- Select a Workshop --</option>';
+        events.forEach(ev => {
+          const opt = document.createElement('option');
+          opt.value = ev.id;
+          opt.textContent = `${ev.title} — ${ev.category || 'General'}`;
+          eventSelect.appendChild(opt);
+        });
+      } catch (err) {
+        console.error('Error loading events:', err);
+      }
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Please log in first!');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      const payload = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        event_id: document.getElementById('eventId').value,
+        preferred_date: document.getElementById('preferredDate').value,
+        notes: document.getElementById('notes').value.trim(),
+      };
+
+      try {
+        const res = await fetch(`${API_BASE}/registrations`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || 'Registration failed');
+        alert('Registration successful!');
+        window.location.href = 'my-registrations.html';
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+  </script>
+</body>
+</html>

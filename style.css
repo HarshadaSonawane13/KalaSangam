@@ -1,0 +1,681 @@
+/* --- Color Palette --- */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333333;
+  background-color: #FBF9F6;
+}
+
+/* --- Navigation Bar --- */
+.custom-navbar {
+  background-color: #FBF9F6;
+  border-bottom: 1px solid #DDC3A5;
+}
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #7B5C4E;
+}
+.nav-link {
+  color: #7B5C4E !important;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-link:hover, .nav-link.active {
+  color: #E79E7B !important;
+}
+.btn-login {
+  background-color: #DDC3A5;
+  color: #333333;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+}
+.btn-login:hover {
+  background-color: #E79E7B;
+  color: #fff;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  padding: 100px 0;
+  background: url('images/hero-bg1.png') no-repeat center center/cover;
+  color: #333333;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #7B5C4E;
+  margin-bottom: 10px;
+}
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+.btn-cta {
+  background-color: #E79E7B;
+  color: #fff;
+  border: 2px solid #E79E7B;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.btn-cta:hover {
+  background-color: #7B5C4E;
+  border-color: #7B5C4E;
+}
+
+/* --- Featured Workshops --- */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  color: #7B5C4E;
+  font-size: 2.5rem;
+}
+
+/* Reduced width for workshop cards */
+.workshop-card {
+  border: 1px solid #DDC3A5;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+  width: 90%;             /* Reduced width */
+  margin: 0 auto;         /* Center cards in column */
+}
+.workshop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.card-img-top {
+  width: 100%;
+  height: 230px;          /* Slightly reduced height */
+  object-fit: cover;
+  border-bottom: 1px solid #DDC3A5;
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  color: #7B5C4E;
+  font-size: 1.4rem;
+}
+
+.btn-learn-more {
+  background-color: #DDC3A5;
+  color: #333333;
+  border: none;
+  transition: background-color 0.3s;
+}
+.btn-learn-more:hover {
+  background-color: #E79E7B;
+  color: #fff;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: #7B5C4E;
+  color: #FBF9F6;
+}
+.footer a {
+  color: #DDC3A5;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #E79E7B;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 992px) {
+  .workshop-card {
+    width: 95%;  /* Slightly wider on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .hero-content {
+    padding: 20px;
+  }
+  .workshop-card {
+    width: 100%;  /* Full width on small screens */
+  }
+}
+
+/* ===== About Page Styling ===== */
+.about-hero {
+  background: url("images/hero-bg1.png") no-repeat center center/cover;
+  color: #fff;
+  padding: 120px 0;
+  position: relative;
+}
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.about-hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+.about-hero .hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.about-hero .hero-subtitle {
+  font-size: 1.25rem;
+  color: #040403;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+.btn-cta {
+  background-color: #E79E7B;
+  border: none;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-cta:hover {
+  background-color: #d67d59;
+  transform: translateY(-2px);
+}
+.about-section {
+  background-color: #fffaf7;
+  color: #333;
+}
+.about-section .section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #E07948;
+}
+.about-section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #555;
+}
+.team-section {
+  background-color: #f9f5f2;
+}
+.team-card {
+  background: #fff;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+.team-card .card-title {
+  font-weight: 700;
+  color: #E07948;
+  margin-top: 10px;
+}
+.team-card .card-text {
+  color: #666;
+  font-size: 0.95rem;
+}
+.footer {
+  background-color: #f1e8e2;
+  color: #333;
+  padding: 25px 0;
+  font-size: 0.95rem;
+}
+.footer a {
+  color: #E07948;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .about-hero .hero-title {
+    font-size: 2.2rem;
+  }
+  .about-hero .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ===== Contact Page Styling ===== */
+.contact-section {
+  background-color: #fffaf7;
+}
+
+.contact-form {
+  border: 1px solid #DDC3A5;
+}
+
+.contact-form .form-label {
+  color: #7B5C4E;
+  font-weight: 600;
+}
+
+.contact-form .form-control {
+  border-radius: 10px;
+  border: 1px solid #DDC3A5;
+  padding: 10px 15px;
+}
+
+.contact-form .form-control:focus {
+  border-color: #E79E7B;
+  box-shadow: 0 0 5px rgba(231, 158, 123, 0.5);
+}
+
+.contact-info {
+  background-color: #f9f5f2;
+  color: #333;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.social-links img {
+  transition: transform 0.3s;
+}
+
+.social-links img:hover {
+  transform: scale(1.1);
+}
+
+.map-section iframe {
+  border-top: 2px solid #DDC3A5;
+}
+
+/* ===== Login Page Styling ===== */
+.login-section {
+  background: url("images/hero-bg1.png") no-repeat center center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.login-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #DDC3A5;
+  border-radius: 15px;
+}
+
+.login-title {
+  font-family: 'Playfair Display', serif;
+  color: #7B5C4E;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.form-label {
+  color: #7B5C4E;
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #DDC3A5;
+  padding: 10px 15px;
+}
+
+.form-control:focus {
+  border-color: #E79E7B;
+  box-shadow: 0 0 5px rgba(231, 158, 123, 0.5);
+}
+
+.forgot-password {
+  color: #E79E7B;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.signup-link {
+  color: #E79E7B;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 30px 20px;
+  }
+}
+
+/* ===== Event Registration Page Styling ===== */
+.registration-section {
+  background: url("images/hero-bg1.png") no-repeat center center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.registration-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #DDC3A5;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+}
+
+.registration-title {
+  font-family: 'Playfair Display', serif;
+  color: #7B5C4E;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.registration-subtitle {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.form-label {
+  color: #7B5C4E;
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #DDC3A5;
+  padding: 10px 15px;
+}
+
+.form-control:focus {
+  border-color: #E79E7B;
+  box-shadow: 0 0 5px rgba(231, 158, 123, 0.5);
+}
+
+/* Dropdowns & inputs consistency */
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3E%3Cpath fill='%237B5C4E' d='M7 10L0 0h14z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+}
+
+/* Buttons */
+.btn-cta {
+  background-color: #E79E7B;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #7B5C4E;
+  transform: translateY(-2px);
+}
+
+/* Success Message */
+.alert-success {
+  background-color: #FBF9F6;
+  color: #7B5C4E;
+  border: 1px solid #DDC3A5;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .registration-card {
+    padding: 25px 20px;
+  }
+  .registration-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* ===== Dashboard Page Styling ===== */
+.dashboard-section {
+  background: url("images/hero-bg1.png") no-repeat center center/cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #333;
+}
+
+.dashboard-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #7B5C4E;
+  font-weight: 700;
+}
+
+.dashboard-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.dashboard-card {
+  border: 1px solid #DDC3A5;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card .card-title {
+  font-family: 'Playfair Display', serif;
+  color: #E07948;
+  margin-bottom: 10px;
+}
+
+.dashboard-card .card-text {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-title {
+    font-size: 2.2rem;
+  }
+  .dashboard-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ===== My Registrations Page ===== */
+.registrations-section {
+  background: url("images/hero-bg1.png") no-repeat center center/cover;
+  background-attachment: fixed;
+  color: #333;
+  min-height: 100vh;
+}
+
+.registrations-title {
+  font-family: 'Playfair Display', serif;
+  color: #7B5C4E;
+  font-weight: 700;
+}
+
+.registrations-subtitle {
+  color: #555;
+}
+
+.registration-table {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.registration-table th {
+  background-color: #f6ede6;
+  color: #7B5C4E;
+  font-weight: 600;
+}
+
+.registration-table td {
+  background-color: #fff;
+}
+
+.registration-table .btn-danger {
+  background-color: #E79E7B;
+  border: none;
+}
+
+.registration-table .btn-danger:hover {
+  background-color: #d97c5c;
+}
+
+/* ================================
+   Admin Dashboard Styles
+   ================================ */
+.sidebar {
+  height: 100vh;
+  background-color: #1e2a47;
+  color: white;
+  position: fixed;
+  width: 250px;
+  top: 0;
+  left: 0;
+  padding-top: 30px;
+}
+
+.sidebar h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 12px 25px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: #f2b705;
+  color: #1e2a47;
+  font-weight: bold;
+}
+
+.logout-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  background-color: #f2b705;
+  color: #1e2a47;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background-color: #ffcb05;
+}
+
+.content {
+  margin-left: 260px;
+  padding: 40px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card-stat {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card-stat h4 {
+  font-size: 18px;
+  color: #555;
+}
+
+.card-stat span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1e2a47;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+th {
+  background-color: #1e2a47;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}

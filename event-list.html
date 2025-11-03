@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art & Craft Workshop Platform | Workshops</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <span class="logo-text">KalaSangam</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="event-list.html">Workshops</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="btn btn-sm btn-login" href="login.html">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Workshops Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 section-title">All Workshops</h2>
+
+      <div class="row mb-4">
+        <div class="col-md-6 mb-3">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search workshops by title...">
+        </div>
+        <div class="col-md-6 mb-3">
+          <select id="categoryFilter" class="form-select">
+            <option value="">All Categories</option>
+            <option value="Painting">Painting</option>
+            <option value="Paper Art">Paper Art</option>
+            <option value="Clay Art">Clay Art</option>
+            <option value="Mixed Media">Mixed Media</option>
+            <option value="Sustainable Craft">Sustainable Craft</option>
+            <option value="Writing Art">Writing Art</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row g-4" id="workshopList">
+        <!-- unchanged cards -->
+        <div class="col-md-4 workshop-item" data-category="Painting" data-activity="Watercolor Wonders">
+          <div class="card workshop-card">
+            <img src="images/placeholder-watercolor.png" class="card-img-top" alt="Watercolor Wonders">
+            <div class="card-body">
+              <h5 class="card-title">Watercolor Wonders</h5>
+              <p class="card-text">Learn color blending, brush techniques, and creative compositions using watercolors.</p>
+              <p class="card-date"></p>
+              <a href="login.html" class="btn btn-sm btn-learn-more">Register</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 workshop-item" data-category="Paper Art" data-activity="Origami Creations">
+          <div class="card workshop-card">
+            <img src="images/placeholder-origami.png" class="card-img-top" alt="Origami Creations">
+            <div class="card-body">
+              <h5 class="card-title">Origami Creations</h5>
+              <p class="card-text">Master intricate paper-folding art to craft animals, flowers, and 3D shapes.</p>
+              <p class="card-date"></p>
+              <a href="login.html" class="btn btn-sm btn-learn-more">Register</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 workshop-item" data-category="Clay Art" data-activity="Pottery & Clay Sculpting">
+          <div class="card workshop-card">
+            <img src="images/placeholder-pottery.png" class="card-img-top" alt="Pottery & Clay Sculpting">
+            <div class="card-body">
+              <h5 class="card-title">Pottery & Clay Sculpting</h5>
+              <p class="card-text">Experience hand-building, molding, and glazing techniques to create pottery art.</p>
+              <p class="card-date"></p>
+              <a href="login.html" class="btn btn-sm btn-learn-more">Register</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 workshop-item" data-category="Mixed Media" data-activity="DIY Resin Art">
+          <div class="card workshop-card">
+            <img src="images/resin-art.png" class="card-img-top" alt="DIY Resin Art">
+            <div class="card-body">
+              <h5 class="card-title">DIY Resin Art</h5>
+              <p class="card-text">Create coasters, jewelry, and wall décor with stunning resin color patterns.</p>
+              <p class="card-date"></p>
+              <a href="login.html" class="btn btn-sm btn-learn-more">Register</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 workshop-item" data-category="Sustainable Craft" data-activity="Eco-Friendly Crafting">
+          <div class="card workshop-card">
+            <img src="images/eco-craft.png" class="card-img-top" alt="Eco-Friendly Crafting">
+            <div class="card-body">
+              <h5 class="card-title">Eco-Friendly Crafting</h5>
+              <p class="card-text">Turn waste materials into decorative art pieces — “Best Out of Waste.”</p>
+              <p class="card-date"></p>
+              <a href="login.html" class="btn btn-sm btn-learn-more">Register</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 workshop-item" data-category="Writing Art" data-activity="Modern Calligraphy">
+          <div class="card workshop-card">
+            <img src="images/calligraphy.png" class="card-img-top" alt="Modern Calligraphy">
+            <div class="card-body">
+              <h5 class="card-title">Modern Calligraphy</h5>
+              <p class="card-text">Discover elegant pen strokes and typography styles with brush pens.</p>
+              <p class="card-date"></p>
+              <a href="login.html" class="btn btn-sm btn-learn-more">Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container text-center">
+      <p class="mb-1">Join Our Creative Community</p>
+      <p class="mb-0"><a href="#">Privacy Policy</a> | &copy; 2025 KalaSangam</p>
+    </div>
+  </footer>
+
+  <script>
+    async function loadEventDates() {
+      try {
+        const res = await fetch("http://localhost:5000/api/events");
+        const events = await res.json();
+        document.querySelectorAll(".card-date").forEach(el => el.textContent = "");
+        document.querySelectorAll(".workshop-item").forEach(card => {
+          const title = card.getAttribute("data-activity")?.trim().toLowerCase();
+          const dateEl = card.querySelector(".card-date");
+          const match = events.find(e => e.title && e.title.trim().toLowerCase() === title);
+          if (match && match.date) {
+            const date = new Date(match.date).toLocaleDateString();
+            dateEl.textContent = `Date: ${date}`;
+          }
+        });
+      } catch (err) {
+        console.error("Error loading event dates:", err);
+      }
+    }
+    loadEventDates();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
